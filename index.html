@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Music - Home</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <!-- Custom CSS -->
+  <style>
+    /* Your custom styles here */
+    body {
+      background-color: #1A1A1A; /* Dark background color */
+      color: #FFFFFF; /* White text color */
+    }
+    .navbar {
+      background-color: #000000; /* Black navbar background color */
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+      color: #FFFFFF;
+    }
+    .navbar-collapse {
+      max-height: calc(100vh - 56px); /* Subtract navbar height from viewport height */
+    }
+    .jumbotron {
+      background-image: url('https://source.unsplash.com/1600x900/?music');
+      background-size: cover;
+      color: white;
+      margin-top: 56px; /* Offset for fixed navbar */
+      padding-top: 100px; /* Additional padding to push content below navbar */
+    }
+    .playlist-card {
+      background-color: #121212; /* Dark playlist card background color */
+      color: #FFFFFF; /* White text color */
+      cursor: pointer; /* Change cursor to pointer */
+    }
+    .player {
+      background-color: #282828; /* Dark player background color */
+    }
+    footer {
+      background-color: #000000; /* Black footer background color */
+      color: #FFFFFF; /* White text color */
+      text-align: center; /* Center-align text */
+      padding: 20px 0; /* Add padding */
+      position: fixed; /* Fixed position */
+      bottom: 0; /* Stick to the bottom */
+      width: 100%; /* Full width */
+    }
+    /* Adjust content margin to avoid overlapping with navbar */
+    .content {
+      margin-top: 56px; /* Height of the navbar */
+    }
+    /* Style for circular images */
+    .rounded-circle {
+      object-fit: cover; /* Ensure entire image fits into circular container */
+      width: 150px; /* Set a fixed width */
+      height: 150px; /* Set a fixed height */
+    }
+    /* Additional style for hero section */
+    .hero-section {
+      background-color: #000000; /* Black background color */
+      padding: 50px 0; /* Add padding */
+    }
+    .hero-heading {
+      color: #FFFFFF; /* White text color */
+      text-align: center; /* Center-align text */
+    }
+    /* Singer card for hero section */
+    .hero-singer-card {
+      text-align: center; /* Center-align text */
+      margin-top: 20px; /* Add top margin */
+    }
+    /* Style for singers section text */
+    .singers-text {
+      text-decoration: none; /* Remove underline */
+      color: white; /* White text color */
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <!-- Add 'fixed-top' class to fix navbar to top -->
+    <a class="navbar-brand" href="#"><i class="fas fa-headphones"></i> My Music</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="browser.html">Browser</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="discover.html">Discover</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signup.html">Sign Up</a>
+        </li>
+      </ul>
+      <!-- Search specifically for playlists -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" id="playlistSearch" placeholder="Search Playlists" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchPlaylists()">Search</button>
+      </form>
+      <!-- Login button -->
+      <a class="btn btn-primary ml-2" href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <!-- Jumbotron with background image -->
+  <div class="jumbotron text-center">
+    <h1 class="display-4">Welcome to My Music</h1>
+    <p class="lead">Listen to your favorite music anytime, anywhere.</p>
+    <hr class="my-4">
+    <p>Join millions of users enjoying our vast collection of songs.</p>
+    <a class="btn btn-primary btn-lg" href="signup.html" role="button">Sign Up</a>
+  </div>
+
+  <!-- Featured Playlists -->
+  <div class="container content"> <!-- Add 'content' class to adjust margin-top -->
+    <h2>Featured Playlists</h2>
+    <div class="row" id="playlistContainer">
+      <!-- Playlist cards will be dynamically added here -->
+    </div>
+  </div>
+
+  <!-- Singers Section -->
+  <div class="container content">
+    <h2 class="mt-4 singers-text">Singers</h2>
+    <div class="row mt-4" id="singersContainer">
+      <!-- Singer cards will be dynamically added here -->
+    </div>
+  </div>
+
+  <!-- Hero Section -->
+  <div class="container-fluid hero-section">
+    <div class="container">
+      <h2 class="hero-heading singers-text">Hero</h2>
+      <div class="row" id="heroSingersContainer">
+        <!-- Hero singer cards will be dynamically added here -->
+        <div class="col-md-4 hero-singer-card">
+          <a href="discover.html">
+            <div class="text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6WN2TqI7AqgPMlEODi1gv3vGSvRPTsVrmKy9BqMcxw&s" class="rounded-circle" alt="NTR">
+              <h5 class="mt-2 singers-text">NTR</h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 hero-singer-card">
+          <a href="discover.html">
+            <div class="text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh5eVdTs34axYQTF4wNuow2XQ4z3aZsgf05FH7W2IHsw&s" class="rounded-circle" alt="Allu Arjun">
+              <h5 class="mt-2 singers-text">Allu Arjun</h5>
+            </div>
+          </a>
+        </div>
+        <div class="col-md-4 hero-singer-card">
+          <a href="discover.html">
+            <div class="text-center">
+              <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkfDHsJZ1vd-KDOVmaE-G0WsgjlbpIV5YXsNgetFJXiw&s" class="rounded-circle" alt="Ram Charan">
+              <h5 class="mt-2 singers-text">Ram Charan</h5>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Music player -->
+  <div class="player">
+    <audio id="audio" controls>
+      Your browser does not support the audio element.
+    </audio>
+  </div>
+
+  <!-- Footer -->
+  <footer>
+    &copy; 2022 My Music. All rights reserved.
+  </footer>
+
+  <!-- jQuery -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <!-- Bootstrap JS -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Example playlist data
+    var playlists = [
+      { title: "Summer Vibes", src: "path_to_summer_vibes_playlist.mp3", image: "https://source.unsplash.com/400x300/?summer" },
+      { title: "Chill Beats", src: "path_to_chill_beats_playlist.mp3", image: "https://source.unsplash.com/400x300/?chill" },
+      { title: "Party Anthems", src: "path_to_party_anthems_playlist.mp3", image: "https://source.unsplash.com/400x300/?party" },
+      { title: "Rainy", src: "path_to_rainy_playlist.mp3", image: "https://source.unsplash.com/400x300/?rainy" },
+      { title: "Romantic", src: "path_to_romantic_playlist.mp3", image: "https://source.unsplash.com/400x300/?romantic" },
+      { title: "Smooth", src: "path_to_smooth_playlist.mp3", image: "https://source.unsplash.com/400x300/?smooth" },
+      { title: "Devotional", src: "path_to_devotional_playlist.mp3", image: "https://source.unsplash.com/400x300/?devotional" },
+      { title: "College Days", src: "path_to_college_days_playlist.mp3", image: "https://source.unsplash.com/400x300/?college" },
+      { title: "Dance", src: "path_to_dance_playlist.mp3", image: "https://source.unsplash.com/400x300/?dance" }
+      // Add more playlists as needed
+    ];
+
+    // Example singer data
+    var singers = [
+      { name: "DSP", image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRInO6zFqKzep0lvktm7uC4nWxfbvkjfaz6o4dtJyOYr58AujJA", url: "browser.html" },
+      { name: "SPB", image: "https://ichef.bbci.co.uk/news/976/cpsprodpb/BC4D/production/_113950284_spbbygvenketram.jpg", url: "browser.html" },
+      { name: "Sussils", image: "https://deeplyrics.in/images/818946_1545372641.jpg", url: "browser.html" },
+      { name: "Anurudh", image: "https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2BLmTyYD3TzGXLaM1Ba60SemDgEjcSqRjp99Q4HU1OMOxAeeh", url: "browser.html" },
+      { name: "AR Rahaman", image: "https://i.pinimg.com/474x/35/4b/99/354b99b9ebffbaf08d2e29d53ac54919.jpg", url: "browser.html" },
+      { name: "Suneetha", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRr_FbisSYZ-pgG75n1q7o_3tReW7fnOmuFcHQglswyTW6TizsM", url: "browser.html" },
+      { name: "Arijit Singh", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYku-fv7aEJ3ChG658uUbK6IqXIiG9LJF1BXEVP_pnOdrr1JhL", url: "browser.html" },
+      { name: "Udit Narayana", image: "https://yt3.googleusercontent.com/ytc/AIdro_kxFKx4HkNWtuXNJnvgAow_S1uCzZ6hCWS3PUyc_Mo8Eg=s900-c-k-c0x00ffffff-no-rj", url: "browser.html" },
+      { name: "Lata Mangeshkar", image: "https://www.jagranimages.com/images/newimg/06022023/06_02_2023-lata_mangeshkar_23320702.webp", url: "browser.html" },
+      { name: "Sherya Ghoshal", image: "https://upload.wikimedia.org/wikipedia/commons/b/bd/Shreya_Ghoshal_at_Filmfare_Awards_South.jpg", url: "browser.html" },
+      { name: "K.L Yesudas", image: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/K_J_Yesudas.JPG/1200px-K_J_Yesudas.JPG", url: "browser.html" },
+      { name: "Sonu Nigam", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ3VvvbjRJdfYyFakED9vKhKCVKtloV9gFZ8e-7nlw-Igoy2W4k", url: "browser.html" },
+      { name: "Asha Bhosle", image: "https://im.rediff.com/movies/2018/sep/04asha-birthday-special1.jpg?w=670&h=900", url: "browser.html" },
+      { name: "KK", image: "https://i.tribune.com.pk/media/images/kk1654021710-0/kk1654021710-0.jpg", url: "browser.html" },
+      { name: "Shankar Mahadevan", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6u4RHWIg59MpKTsSrzaIaW6AvlP6Vfse4ZpFbr425FncHZG1STtAMOOMAljBC6CgdNG3Wqg", url: "browser.html" },
+      { name: "K.S.Chitra", image: "https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT36wy3YpKTwL-yajF51vV6jXEo-yVdV3DxorIMZqEpFRuF_mAe", url: "browser.html" }
+    ];
+
+    // Function to render playlists based on search term
+    function renderPlaylists(searchTerm) {
+      var container = $('#playlistContainer');
+      container.empty();
+      playlists.forEach(function(playlist) {
+        if (playlist.title.toLowerCase().includes(searchTerm.toLowerCase())) {
+          var playlistCard = $(`
+            <div class="col-md-4">
+              <div class="card playlist-card">
+                <img src="${playlist.image}" class="card-img-top" alt="${playlist.title}">
+                <div class="card-body">
+                  <h5 class="card-title">${playlist.title}</h5>
+                </div>
+              </div>
+            </div>
+          `);
+          // Add click event to navigate to browser.html when playlist card is clicked
+          playlistCard.click(function() {
+            window.location.href = "browser.html";
+          });
+          container.append(playlistCard);
+        }
+      });
+    }
+
+    // Function to render singers
+    function renderSingers(searchTerm) {
+      var container = $('#singersContainer');
+      container.empty();
+      singers.forEach(function(singer) {
+        if (singer.name.toLowerCase().includes(searchTerm.toLowerCase())) {
+          var singerCard = $(`
+            <div class="col-md-3">
+              <div class="text-center">
+                <img src="${singer.image}" class="rounded-circle" alt="${singer.name}">
+                <h5 class="mt-2 singers-text">${singer.name}</h5>
+              </div>
+            </div>
+          `);
+          // Add click event to navigate to browser.html when singer card is clicked
+          singerCard.click(function() {
+            window.location.href = singer.url;
+          });
+          container.append(singerCard);
+        }
+      });
+    }
+
+    // Function to search playlists
+    function searchPlaylists() {
+      var searchTerm = $('#playlistSearch').val();
+      renderPlaylists(searchTerm);
+    }
+
+    // Initial render of playlists and singers
+    renderPlaylists("");
+    renderSingers("");
+  </script>
+    <script>
+      $(document).ready(function() {
+        // Function to handle navigation to discover.html with selected playlist and language
+        function navigateToDiscover(playlist, language) {
+          // Check if both playlist and language are selected
+          if (playlist && language) {
+            // Construct URL with selected playlist and language
+            var url = "discover.html?playlist=" + encodeURIComponent(playlist) + "&language=" + encodeURIComponent(language);
+            // Navigate to discover.html
+            window.location.href = url;
+          } else {
+            // Show an alert if both playlist and language are not selected
+            alert("Please select both playlist and language.");
+          }
+        }
+  
+        // Click event for playlist cards
+        $(".playlist-card").click(function() {
+          // Get the selected playlist
+          var playlist = $(this).find(".card-title").text().trim();
+          // Get the selected language
+          var language = $("#languageSelect").val();
+          // Navigate to discover.html with selected playlist and language
+          navigateToDiscover(playlist, language);
+        });
+  
+        // Change event for language select
+        $("#languageSelect").change(function() {
+          // Get the selected playlist
+          var playlist = $(".playlist-card.selected").find(".card-title").text().trim();
+          // Get the selected language
+          var language = $(this).val();
+          // Navigate to discover.html with selected playlist and language
+          navigateToDiscover(playlist, language);
+        });
+      });
+    </script>
+    <script>
+      // Function to redirect to discover.html with selected playlist and language
+      function redirectToDiscover(playlist, language) {
+        // Encode playlist and language parameters to pass them in the URL
+        var playlistParam = encodeURIComponent(playlist);
+        var languageParam = encodeURIComponent(language);
+        
+        // Redirect to discover.html with playlist and language parameters
+        window.location.href = "discover.html?playlist=" + playlistParam + "&language=" + languageParam;
+      }
+    </script>
+  
+</body>
+</html>
