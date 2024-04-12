@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Clone - Sign Up</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <!-- Custom CSS -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* Your custom styles here */
+    body {
+      background-image: url('https://source.unsplash.com/1600x900/?playlist,music');
+      background-size: cover;
+      background-repeat: no-repeat;
+      color: white;
+    }
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
+    }
+    .navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+      color: #FFFFFF;
+    }
+    .navbar-collapse {
+      max-height: calc(100vh - 56px); /* Subtract navbar height from viewport height */
+    }
+
+    .container {
+      margin-top: 56px; /* Offset for fixed navbar */
+    }
+    form {
+      background-color: rgba(0, 0, 0, 0.5);
+      padding: 20px;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><i class="fas fa-headphones"></i> My Music</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item">
+          <a class="nav-link" href="index.html">Home</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="browser.html">Browser</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="discover.html">Discover</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="signup.html">Sign Up <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+      </form>
+      <!-- Changed button to "Login" with link to login.html -->
+      <a class="btn btn-primary ml-2" href="login.html">Login</a>
+    </div>
+  </nav>
+
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-6">
+        <h2 class="text-center mb-4">Sign Up</h2>
+        <form id="signupForm">
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input type="text" class="form-control" id="username" placeholder="Enter username">
+          </div>
+          <div class="form-group">
+            <label for="email">Email address</label>
+            <input type="email" class="form-control" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+          </div>
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" class="form-control" id="password" placeholder="Password">
+          </div>
+          <div class="form-group">
+            <label for="confirmPassword">Confirm Password</label>
+            <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password">
+          </div>
+          <button type="button" class="btn btn-primary btn-block" onclick="signup()">Sign Up</button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS (Optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    function signup() {
+      window.location.href = 'index.html';
+    }
+  </script>
+</body>
+</html>

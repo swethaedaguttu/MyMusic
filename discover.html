@@ -1,0 +1,2356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Spotify Clone - Discover</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <link rel="stylesheet" href="songs.html">
+  <style>
+  img {
+    width: 700px; /* Example width */
+    height: 400px; /* Example height */
+}
+.navbar-brand {
+      font-weight: bold;
+      font-size: 24px;
+      color: #FFFFFF;
+    }
+    .navbar-collapse {
+      max-height: calc(100vh - 56px); /* Subtract navbar height from viewport height */
+    }
+
+</style>
+</head>
+<body>
+  <!-- Navigation bar -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"> <!-- Add 'fixed-top' class to fix navbar to top -->
+    <a class="navbar-brand" href="#"><i class="fas fa-headphones"></i> My Music</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="index.html">Home </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="browser.html">Browser</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="discover.html">Discover <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="signup.html">Sign Up</a>
+        </li>
+      </ul>
+      <!-- Search specifically for playlists -->
+      <form class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="search" id="playlistSearch" placeholder="Search Playlists" aria-label="Search">
+        <button class="btn btn-outline-success my-2 my-sm-0" type="button" onclick="searchPlaylists()">Search</button>
+      </form>
+      <!-- Login button -->
+      <a class="btn btn-primary ml-2" href="login.html">Login</a>
+    </div>
+  </nav>
+  </nav>
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language Combination</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong id="selectedPlaylist">-</strong> in <strong id="selectedLanguage">-</strong> language.</p>
+    <!-- Playlist cards will be dynamically added here -->
+    <div id="playlistContainer" class="row">
+      <!-- Playlist cards will be dynamically added here -->
+    </div>
+  </div>
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Summer Vibes</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?summer" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Chill Beats</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?chill" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Party Anthems</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?party" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Rainy</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?rainy" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Romantic</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?romantic" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Smooth</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?smooth" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Devotional</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?devotional" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>College days</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?college" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Dance</strong> playlist.</p>
+    <img src="https://source.unsplash.com/400x300/?dance" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Dsp</strong> playlist.</p>
+    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcRInO6zFqKzep0lvktm7uC4nWxfbvkjfaz6o4dtJyOYr58AujJA" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>SPB</strong> playlist.</p>
+    <img src="https://ichef.bbci.co.uk/news/976/cpsprodpb/BC4D/production/_113950284_spbbygvenketram.jpg" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+  
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Sussila</strong> playlist.</p>
+    <img src="https://deeplyrics.in/images/818946_1545372641.jpg" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+  
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Anurudh</strong> playlist.</p>
+    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQ2BLmTyYD3TzGXLaM1Ba60SemDgEjcSqRjp99Q4HU1OMOxAeeh" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>AR Rahamn</strong> playlist.</p>
+    <img src="https://i.pinimg.com/474x/35/4b/99/354b99b9ebffbaf08d2e29d53ac54919.jpg" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Suneetha</strong> playlist.</p>
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcRr_FbisSYZ-pgG75n1q7o_3tReW7fnOmuFcHQglswyTW6TizsM" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Arijit Singh</strong> playlist.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYku-fv7aEJ3ChG658uUbK6IqXIiG9LJF1BXEVP_pnOdrr1JhL" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Udit Narayana</strong> playlist.</p>
+    <img src="https://yt3.googleusercontent.com/ytc/AIdro_kxFKx4HkNWtuXNJnvgAow_S1uCzZ6hCWS3PUyc_Mo8Eg=s900-c-k-c0x00ffffff-no-rj" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Lata Mangeshkar</strong> playlist.</p>
+    <img src="https://www.jagranimages.com/images/newimg/06022023/06_02_2023-lata_mangeshkar_23320702.webp" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Sherya Ghoshal</strong> playlist.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/b/bd/Shreya_Ghoshal_at_Filmfare_Awards_South.jpg" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>K.L.Yesudas</strong> playlist.</p>
+    <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/9/93/K_J_Yesudas.JPG/1200px-K_J_Yesudas.JPG" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Sonu Nijam</strong> playlist.</p>
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcQ3VvvbjRJdfYyFakED9vKhKCVKtloV9gFZ8e-7nlw-Igoy2W4k" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Asha Bhosle</strong> playlist.</p>
+    <img src="https://im.rediff.com/movies/2018/sep/04asha-birthday-special1.jpg?w=670&h=900" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Shankar Mahadevan</strong> playlist.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT6u4RHWIg59MpKTsSrzaIaW6AvlP6Vfse4ZpFbr425FncHZG1STtAMOOMAljBC6CgdNG3Wqg" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>KK</strong> playlist.</p>
+    <img src="https://i.tribune.com.pk/media/images/kk1654021710-0/kk1654021710-0.jpg" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>K.S.Chitra</strong> playlist.</p>
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT36wy3YpKTwL-yajF51vV6jXEo-yVdV3DxorIMZqEpFRuF_mAe" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>NTR</strong> playlist.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTD6WN2TqI7AqgPMlEODi1gv3vGSvRPTsVrmKy9BqMcxw&s" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Allu Arjun</strong> playlist.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSh5eVdTs34axYQTF4wNuow2XQ4z3aZsgf05FH7W2IHsw&s" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+
+  <div class="container mt-4">
+    <h2>Selected Playlist and Language</h2>
+    <!-- Display selected playlist and language combination -->
+    <p>User selected: <strong>Ram Charan</strong> playlist.</p>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTkfDHsJZ1vd-KDOVmaE-G0WsgjlbpIV5YXsNgetFJXiw&s" alt="Summer Vibes Image" class="img-fluid mb-4">
+
+    
+    <h3>Songs - Telugu</h3>
+    <!-- Display three songs for Summer Vibes in Telugu -->
+    <ul>
+      <li><a href="#">Song 1 (Telugu)</a></li>
+      <li><a href="#">Song 2 (Telugu)</a></li>
+      <li><a href="#">Song 3 (Telugu)</a></li>
+    </ul>
+    
+    <h3>Songs - Tamil</h3>
+    <!-- Display three songs for Summer Vibes in Tamil -->
+    <ul>
+      <li><a href="#">Song 1 (Tamil)</a></li>
+      <li><a href="#">Song 2 (Tamil)</a></li>
+      <li><a href="#">Song 3 (Tamil)</a></li>
+    </ul>
+    
+    <h3>Songs - Kannada</h3>
+    <!-- Display three songs for Summer Vibes in Kannada -->
+    <ul>
+      <li><a href="#">Song 1 (Kannada)</a></li>
+      <li><a href="#">Song 2 (Kannada)</a></li>
+      <li><a href="#">Song 3 (Kannada)</a></li>
+    </ul>
+    
+    <h3>Songs - Malayalam</h3>
+    <!-- Display three songs for Summer Vibes in Malayalam -->
+    <ul>
+      <li><a href="#">Song 1 (Malayalam)</a></li>
+      <li><a href="#">Song 2 (Malayalam)</a></li>
+      <li><a href="#">Song 3 (Malayalam)</a></li>
+    </ul>
+    
+    <h3>Songs - Hindi</h3>
+    <!-- Display three songs for Summer Vibes in Hindi -->
+    <ul>
+      <li><a href="#">Song 1 (Hindi)</a></li>
+      <li><a href="#">Song 2 (Hindi)</a></li>
+      <li><a href="#">Song 3 (Hindi)</a></li>
+    </ul>
+    
+    <h3>Songs - Punjabi</h3>
+    <!-- Display three songs for Summer Vibes in Punjabi -->
+    <ul>
+      <li><a href="#">Song 1 (Punjabi)</a></li>
+      <li><a href="#">Song 2 (Punjabi)</a></li>
+      <li><a href="#">Song 3 (Punjabi)</a></li>
+    </ul>
+    
+    <h3>Songs - Oriya</h3>
+    <!-- Display three songs for Summer Vibes in Oriya -->
+    <ul>
+      <li><a href="#">Song 1 (Oriya)</a></li>
+      <li><a href="#">Song 2 (Oriya)</a></li>
+      <li><a href="#">Song 3 (Oriya)</a></li>
+    </ul>
+    
+    <h3>Songs - Gujarati</h3>
+    <!-- Display three songs for Summer Vibes in Gujarati -->
+    <ul>
+      <li><a href="#">Song 1 (Gujarati)</a></li>
+      <li><a href="#">Song 2 (Gujarati)</a></li>
+      <li><a href="#">Song 3 (Gujarati)</a></li>
+    </ul>
+    
+    <h3>Songs - Bengali</h3>
+    <!-- Display three songs for Summer Vibes in Bengali -->
+    <ul>
+      <li><a href="#">Song 1 (Bengali)</a></li>
+      <li><a href="#">Song 2 (Bengali)</a></li>
+      <li><a href="#">Song 3 (Bengali)</a></li>
+    </ul>
+  </div>
+  
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+<script>
+  // Function to retrieve URL parameters
+  function getUrlParameter(name) {
+      name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+      var regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
+      var results = regex.exec(location.search);
+      return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
+  }
+
+  // Retrieve selected playlist and language from URL parameters
+  var selectedPlaylist = getUrlParameter('playlist');
+  var selectedLanguage = getUrlParameter('language');
+
+  // Display selected combination
+  document.getElementById('selectedPlaylist').textContent = selectedPlaylist;
+  document.getElementById('selectedLanguage').textContent = selectedLanguage;
+
+  // Function to dynamically add playlist cards based on selected combination
+  function addPlaylistCards(playlist, language) {
+      var playlistContainer = document.getElementById('playlistContainer');
+      // Clear any existing content
+      playlistContainer.innerHTML = '';
+      // Add playlist cards based on selected combination
+      for (var i = 1; i <= 3; i++) { // Adding 3 sample cards
+          var playlistCard = document.createElement('div');
+          playlistCard.classList.add('col-md-4');
+          playlistCard.innerHTML = `
+              <div class="card">
+                  <div class="card-body">
+                      <h5 class="card-title">${playlist} - ${language} Song ${i}</h5>
+                      <p class="card-text">Description of the song.</p>
+                      <a href="#" class="btn btn-primary">Listen</a>
+                  </div>
+              </div>
+          `;
+          playlistContainer.appendChild(playlistCard);
+      }
+  }
+
+  // Call the function to add playlist cards
+  addPlaylistCards(selectedPlaylist, selectedLanguage);
+</script>
+
+
+  <!-- Bootstrap JS (Optional) -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
